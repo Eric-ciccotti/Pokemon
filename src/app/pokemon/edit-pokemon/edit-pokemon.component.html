@@ -1,6 +1,10 @@
 <h2 class="header center"> Editer {{ pokemon?.name }}</h2>
 <p class="center">
-  <img *ngIf="pokemon" [src]="pokemon.picture">
+  <img *ngIf="pokemon" [src]="pokemon.picture" (error)="onImgError($event)" width="300" height="300">
 </p>
 
+
+
 <form-pokemon [pokemon]="pokemon"></form-pokemon>
+
+

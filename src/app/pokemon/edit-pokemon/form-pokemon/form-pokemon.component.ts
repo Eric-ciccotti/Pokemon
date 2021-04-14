@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Pokemon } from '../../donnees-pokemons/pokemon';
 import { PokemonService } from '../../pokemon.service';
 
 @Component({
@@ -26,6 +27,7 @@ export class FormPokemonComponent implements OnInit {
     if (index > -1) return true;
     return false;
   }
+
   // Méthode appelée lorsque l'utilisateur ajoute ou retire un type au pokémon en cours d'édition.
   selectType($event: any, type: string): void {
     let checked = $event.target.checked;
@@ -50,7 +52,12 @@ export class FormPokemonComponent implements OnInit {
   }
 
   onSubmit():void {
-    this.pokemonService.goBack(this.pokemon.id)
+    this.pokemonService.updatePokemon(this.pokemon)
+    .subscribe(() => this.goBack());
+  }
+
+  goBack() {
+    this.pokemonService.goBack();
   }
 
 }

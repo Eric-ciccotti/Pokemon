@@ -45,10 +45,14 @@
         </tbody>
         </div>
         <div class="card-action">
-          <a class="waves-effect waves-light btn"(click)="this.pokemonService.goBack()">Retour</a>
+          <a class="waves-effect waves-light btn"(click)="goBack(pokemon)">Retour</a>
           <a class="waves-effect waves-light btn"(click)="goEdit(pokemon)">Editer</a>
+          <a class="waves-effect waves-light btn"(click)="goDelete(pokemon)">Supprimer</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+<h4 *ngIf="!pokemon" class="center">
+  <pokemon-loader></pokemon-loader>
+</h4>
