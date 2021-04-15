@@ -9,11 +9,12 @@ import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.componen
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 import { FormPokemonComponent } from './edit-pokemon/form-pokemon/form-pokemon.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PokemonRoutingModule } from './pokemon-routing.module';
 
 import { PokemonService } from './pokemon.service';
 import { LoaderComponent } from '../loader.component';
+
 
 
 @NgModule({
@@ -24,12 +25,13 @@ import { LoaderComponent } from '../loader.component';
     DetailPokemonComponent,
     EditPokemonComponent,
     FormPokemonComponent,
-    LoaderComponent
+    LoaderComponent,
   ],
   imports: [
     PokemonRoutingModule,
     FormsModule,
-    CommonModule
+    ReactiveFormsModule,
+    CommonModule,
   ],
   providers: [PokemonService],
   bootstrap: []

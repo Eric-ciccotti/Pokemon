@@ -1,7 +1,45 @@
 <h1 class="center">Liste de Pokémons</h1>
 <div class="container">
   <div class="row">
-    <div *ngFor='let pokemon of pokemons' class="col s6 m4">
+
+
+      <div class="input-field col s12">
+        <i class="material-icons prefix">search</i>
+        <input  type="text" id="autocomplete-input" class="autocomplete" [formControl]="filter" placeholder="Ex.. Pikachu">
+      </div>
+
+      <div *ngIf="filter.value" class="collection mousePointer">
+        <a *ngFor="let pokemon of filteredPokemon$ | async" (click)="selectPokemon(pokemon)" class="collection-item">
+          {{pokemon.name}}</a>
+      </div>
+
+
+
+      <!-- <input type="text" [formControl]="filter" placeholder="Taper un nom de pokemon..."> -->
+
+
+
+
+
+
+
+
+
+    <!-- <div class="input-field col s12">
+      <i class="material-icons prefix">search</i>
+      <input type="text" id="autocomplete-input" [(ngModel)]="searchText">
+    </div>
+
+    <ul>
+      <li class="list-group-item" *ngFor="let pokemon of pokemons | pokemonFilter: searchText">
+        {{pokemon.name}}
+      </li>
+    </ul> -->
+
+  </div>
+  <div class="row">
+  <div>
+    <div  *ngFor="let pokemon of filteredPokemon$ | async" class="col s6 m4">
       <div class="card horizontal" (click)="selectPokemon(pokemon)" pokemonBC>
         <div class="card-image">
           <img [src]="pokemon.picture">
