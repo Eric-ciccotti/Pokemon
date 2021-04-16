@@ -25,7 +25,7 @@ export class EditPokemonComponent implements OnInit {
   }
 
   onImgError($event){
-    $event.target.src = 'https://www.pokepedia.fr/images/e/e2/Pok%C3%A9_Ball-RS.png';
+    $event.target.src = 'https://images-na.ssl-images-amazon.com/images/I/51sGFjgn2VL._AC_SX450_.jpg';
   }
 
 

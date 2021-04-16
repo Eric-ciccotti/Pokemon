@@ -9,11 +9,14 @@ import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.componen
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 import { FormPokemonComponent } from './edit-pokemon/form-pokemon/form-pokemon.component';
 
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PokemonRoutingModule } from './pokemon-routing.module';
 
 import { PokemonService } from './pokemon.service';
 import { LoaderComponent } from '../loader.component';
+import { FormAddPokemonComponent } from './add-pokemon/form-pokemon/form-add-pokemon.component';
+import { AddPokemonComponent } from './add-pokemon/add-pokemon.component';
 
 
 
@@ -24,7 +27,9 @@ import { LoaderComponent } from '../loader.component';
     BorderCardDirective,
     DetailPokemonComponent,
     EditPokemonComponent,
+    AddPokemonComponent,
     FormPokemonComponent,
+    FormAddPokemonComponent,
     LoaderComponent,
   ],
   imports: [

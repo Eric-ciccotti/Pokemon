@@ -2,9 +2,4 @@
 <p class="center">
   <img *ngIf="pokemon" [src]="pokemon.picture" (error)="onImgError($event)" width="300" height="300">
 </p>
-
-
-
 <form-pokemon [pokemon]="pokemon"></form-pokemon>
-
-

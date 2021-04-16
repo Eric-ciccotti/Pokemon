@@ -8,38 +8,15 @@
         <input  type="text" id="autocomplete-input" class="autocomplete" [formControl]="filter" placeholder="Ex.. Pikachu">
       </div>
 
-      <div class="col s12 center">
-        <button type="button" class="btn btn-large waves-effect waves-light blue" (click)="newPokemon()">Ajouter un pokmeon<i
-            class="material-icons right">send</i></button>
-      </div>
-
       <div *ngIf="filter.value" class="collection mousePointer">
         <a *ngFor="let pokemon of filteredPokemon$ | async" (click)="selectPokemon(pokemon)" class="collection-item">
           {{pokemon.name}}</a>
       </div>
 
-
-
-      <!-- <input type="text" [formControl]="filter" placeholder="Taper un nom de pokemon..."> -->
-
-
-
-
-
-
-
-
-
-    <!-- <div class="input-field col s12">
-      <i class="material-icons prefix">search</i>
-      <input type="text" id="autocomplete-input" [(ngModel)]="searchText">
-    </div>
-
-    <ul>
-      <li class="list-group-item" *ngFor="let pokemon of pokemons | pokemonFilter: searchText">
-        {{pokemon.name}}
-      </li>
-    </ul> -->
+      <div class="col s12 center">
+        <button type="button" class="btn btn-large waves-effect waves-light blue" (click)="addPokemon()">Ajouter un pokemon<i
+            class="material-icons right">send</i></button>
+      </div>
 
   </div>
   <div class="row">

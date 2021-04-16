@@ -12,9 +12,6 @@ import { of } from 'rxjs';
   providedIn: 'root',
 })
 export class PokemonService {
-
-  isEditMode: Subject<boolean> = null;
-
   pokemon : any = null;
   private pokemonUrl = 'api/pokemons';
 
@@ -43,22 +40,12 @@ export class PokemonService {
     )
   }
 
-  // addPokmeon(Pokemon: Pokemon): Observable<Pokemon>{
-  //   const newPokmeon = {      id: 12,
-  //     name: "Groupix",
-  //     hp: 17,
-  //     cp: 8,
-  //     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
-  //     types: ["Feu"],
-  //     created: new Date()}
-
-
-  //   return this.http.post<Pokemon>(this.pokemonUrl, pokemon).pipe(
-  //     tap(_ => this.log('fetched pokemons')),
-  //     catchError(this.handleError('getPokemons', []))
-  //   )
-  // }
-
+  addPokemon(p:Pokemon): Observable<any>{
+    return this.http.post<Pokemon>(this.pokemonUrl, p).pipe(
+      tap(_ => this.log('add pokemon')),
+      catchError(this.handleError('addPokemon', []))
+    )
+  }
 
    /**
    * @description retourne un pokemon via son id

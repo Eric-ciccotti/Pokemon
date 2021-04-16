@@ -1,20 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Pokemon } from '../../donnees-pokemons/pokemon';
 import { PokemonService } from '../../pokemon.service';
 
 @Component({
-  selector: 'form-pokemon',
-  templateUrl: './form-pokemon.component.html',
-  styleUrls: ['./form-pokemon.component.css']
+  selector: 'form-add-pokemon',
+  templateUrl: './form-add-pokemon.component.html',
+  styleUrls: ['./form-add-pokemon.component.css']
 })
-export class FormPokemonComponent implements OnInit {
+export class FormAddPokemonComponent implements OnInit {
   types: any = []
   @Input() pokemon: any;
 
 
   constructor(private route: ActivatedRoute, private router: Router, private pokemonService: PokemonService){
-
   }
 
   ngOnInit(){
@@ -43,9 +41,6 @@ export class FormPokemonComponent implements OnInit {
   }
    // Valide le nombre de types pour chaque pokémon
    isTypesValid(type: string): boolean {
-    if (this.pokemon.types.length === 1 && this.hasType(type)) {
-        return false;
-    }
     if (this.pokemon.types.length >= 3 && !this.hasType(type)) {
         return false;
     }
@@ -53,7 +48,7 @@ export class FormPokemonComponent implements OnInit {
   }
 
   onSubmit():void {
-    this.pokemonService.updatePokemon(this.pokemon)
+    this.pokemonService.addPokemon(this.pokemon)
     .subscribe(() => this.goBack());
   }
 

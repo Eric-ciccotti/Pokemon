@@ -1,0 +1,5 @@
+<h2 class="header center"> Ajouter un pokmeon</h2>
+<p class="center">
+  <img [src]="pokemon.picture" (error)="onImgError($event)" width="300" height="300">
+</p>
+<form-add-pokemon [pokemon]="pokemon"></form-add-pokemon>
