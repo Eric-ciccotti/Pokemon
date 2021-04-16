@@ -1,0 +1,17 @@
+<nav>
+  <div class="nav-wrapper teal">
+    <a href="#" class="brand-logo center">Pokemon App 1.0</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li>
+        <div *ngIf="auth.user$ | async as user" class="chip">
+          <img [src]="user.picture" alt="Contact Person">
+          Bonjour <span style="font-weight:bold">{{ user.name }}</span> vous êtes connecté !
+        </div>
+      </li>
+      <li><a class="waves-effect waves-light btn" (click)="login()"
+          *ngIf="(auth.isAuthenticated$ | async) === false">Se connecter</a></li>
+      <li><a class="waves-effect waves-light btn" (click)="logout()" *ngIf="auth.isAuthenticated$ | async">Se déconnecter</a>
+      </li>
+    </ul>
+  </div>
+</nav>

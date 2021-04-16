@@ -4,7 +4,7 @@ import { LISTPOKEMONS } from './donnees-pokemons/mock-pokemons';
 import { Pokemon } from './donnees-pokemons/pokemon';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { catchError, tap} from 'rxjs/operators';
 import { of } from 'rxjs';
 
@@ -12,6 +12,8 @@ import { of } from 'rxjs';
   providedIn: 'root',
 })
 export class PokemonService {
+
+  isEditMode: Subject<boolean> = null;
 
   pokemon : any = null;
   private pokemonUrl = 'api/pokemons';
@@ -40,6 +42,23 @@ export class PokemonService {
       catchError(this.handleError('getPokemons', []))
     )
   }
+
+  // addPokmeon(Pokemon: Pokemon): Observable<Pokemon>{
+  //   const newPokmeon = {      id: 12,
+  //     name: "Groupix",
+  //     hp: 17,
+  //     cp: 8,
+  //     picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
+  //     types: ["Feu"],
+  //     created: new Date()}
+
+
+  //   return this.http.post<Pokemon>(this.pokemonUrl, pokemon).pipe(
+  //     tap(_ => this.log('fetched pokemons')),
+  //     catchError(this.handleError('getPokemons', []))
+  //   )
+  // }
+
 
    /**
    * @description retourne un pokemon via son id

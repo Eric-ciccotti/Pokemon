@@ -35,6 +35,10 @@ export class PokemonsComponent implements OnInit {
     );
    }
 
+   newPokemon() {
+     this.router.navigate(['/'])
+   }
+
 
 
   ngOnInit(): void {
